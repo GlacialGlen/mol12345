@@ -20,7 +20,7 @@ class Fragment02: Fragment() {
 
         val galleryAdapter = GalleryAdapter()
         if (imageList.isEmpty()) {
-            for (i in 1..19) {
+            for (i in 1..18) {
                 imageList.add(GalleryListData(i))
             }
         }
