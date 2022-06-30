@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 
 class Fragment03: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_03, container, false)
+        val fragmentView = inflater.inflate(R.layout.fragment_03, container, false)
+
+
+        return fragmentView
     }
 }
