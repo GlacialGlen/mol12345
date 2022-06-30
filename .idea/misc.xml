@@ -5,7 +5,9 @@
       <map>
         <entry key="..\:/Projects/mol12345/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Projects/mol12345/app/src/main/res/layout/fragment_01.xml" value="0.286231884057971" />
+        <entry key="..\:/Projects/mol12345/app/src/main/res/layout/fragment_02.xml" value="0.25" />
         <entry key="..\:/Projects/mol12345/app/src/main/res/layout/fragment_03.xml" value="0.286231884057971" />
+        <entry key="..\:/Projects/mol12345/app/src/main/res/layout/gallery_list_item.xml" value="0.1" />
       </map>
     </option>
   </component>
