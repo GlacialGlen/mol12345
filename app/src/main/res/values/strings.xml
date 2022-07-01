@@ -3,11 +3,35 @@
     <string name="contact">Contact</string>
     <string name="gallery">Gallery</string>
     <string name="calculator">Calculator</string>
-    <string name="no_image">Something wrong, no image found</string>
+
     <string name="humanname">name</string>
     <string name="humanpnum">010-0000-0000</string>
     <string name="humannick">nickname</string>
-    <string name="calculator_zero">2045200234230010</string>
     <string name="calling">전화 걸기</string>
     <string name="messaging">메세지 보내기</string>
+
+    <string name="no_image">Something wrong, no image found</string>
+
+    <string name="calculator_zero">0</string>
+    <string name="calculator_button_ac">AC</string>
+    <string name="calculator_button_unary">+/-</string>
+    <string name="calculator_button_percent">%</string>
+    <string name="calculator_button_div">÷</string>
+    <string name="calculator_button_7">7</string>
+    <string name="calculator_button_8">8</string>
+    <string name="calculator_button_9">9</string>
+    <string name="calculator_button_mul">×</string>
+    <string name="calculator_button_4">4</string>
+    <string name="calculator_button_5">5</string>
+    <string name="calculator_button_6">6</string>
+    <string name="calculator_button_sub">-</string>
+    <string name="calculator_button_1">1</string>
+    <string name="calculator_button_2">2</string>
+    <string name="calculator_button_3">3</string>
+    <string name="calculator_button_add">+</string>
+    <string name="calculator_button_0">0</string>
+    <string name="calculator_button_dot">.</string>
+    <string name="calculator_button_cal">=</string>
+
+
 </resources>
