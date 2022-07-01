@@ -86,7 +86,7 @@ class Fragment03: Fragment() {
             buttonView.setOnClickListener {
                 text.text = cal.Call(buttonView.text as String)
 
-                handleClear(fragmentView, acButton, data.id)
+                handleClear(acButton, data.id)
                 handleButtonHighlight(fragmentView, buttonView, data.id)
             }
         }
@@ -118,7 +118,7 @@ class Fragment03: Fragment() {
         }
     }
 
-    private fun handleClear(fragmentView: View, targetButton: Button, id: Int) {
+    private fun handleClear(targetButton: Button, id: Int) {
         if (id == R.id.calculator_button_ac) {
             is_c = false
             targetButton.text = getString(R.string.calculator_button_ac)
