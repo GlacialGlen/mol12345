@@ -39,7 +39,6 @@ class Fragment01: Fragment() {
 
 }
 class VerticalItemDecorator(private val divHeight : Int) : RecyclerView.ItemDecoration() {
-
     @Override
     override fun getItemOffsets(outRect: Rect, view: View, parent : RecyclerView, state : RecyclerView.State) {
         super.getItemOffsets(outRect, view, parent, state)

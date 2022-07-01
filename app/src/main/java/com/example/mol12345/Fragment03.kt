@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 
@@ -45,7 +46,8 @@ class Fragment03: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val fragmentView = inflater.inflate(R.layout.fragment_03, container, false)
 
-        val calculator = Calculator()
+        val cal  = Calculator()
+        val text : TextView = fragmentView.findViewById(R.id.calculator_display)
 
         for (data in buttonData) {
             val buttonView: Button = fragmentView.findViewById(data.id)
@@ -54,7 +56,7 @@ class Fragment03: Fragment() {
             buttonView.text = getString(buttonResource)
             buttonView.background = AppCompatResources.getDrawable(context, R.drawable.roundcorner)
             buttonView.setOnClickListener {
-                buttonView.text = "?!"
+                text.text = cal.Call(buttonView.text as String)
             }
         }
 
