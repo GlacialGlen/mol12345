@@ -11,6 +11,7 @@
     <string name="messaging">메세지 보내기</string>
     <string name="calculator_zero">0</string>
     <string name="calculator_button_ac">AC</string>
+    <string name="calculator_button_c">C</string>
     <string name="calculator_button_unary">+/-</string>
     <string name="calculator_button_percent">%</string>
     <string name="calculator_button_div">÷</string>

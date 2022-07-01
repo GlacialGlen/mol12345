@@ -5,7 +5,7 @@ class Calculator {
     private lateinit var n_old : String
     private lateinit var n_new : String
     private lateinit var op : String
-    private lateinit var lastest : String
+    private lateinit var latest : String
 
     fun Call(new_data: String) : String{
         when(new_data) {
@@ -31,28 +31,28 @@ class Calculator {
         }
     }
     fun Call_Num(new_data : String) : String{
-
+        return new_data
     }
     fun Call_Op(new_data : String) : String{
-
+        return new_data
     }
     fun Call_Cal(new_data : String) : String{
-
+        return new_data
     }
     fun Call_Dot(new_data : String) : String{
-
+        return new_data
     }
     fun Call_Neg(new_data : String) : String{
-
+        return new_data
     }
     fun Call_Per(new_data : String) : String {
-
+        return new_data
     }
     fun Clear() : String{
         n_old = ""
         n_new = ""
         op = ""
-        lastest = ""
+        latest = ""
         return "0"
     }
 }
