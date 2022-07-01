@@ -11,6 +11,15 @@
         <entry key="..\:/Projects/mol12345/app/src/main/res/layout/fragment_03.xml" value="0.286231884057971" />
         <entry key="..\:/Projects/mol12345/app/src/main/res/layout/gallery_list_item.xml" value="0.1" />
         <entry key="..\:/Projects/mol12345/app/src/main/res/layout/item_recycler.xml" value="0.1634963768115942" />
+        <entry key="app/src/main/res/layout/activity_gallery_large.xml" value="0.14361702127659576" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.4601004118966585" />
+        <entry key="app/src/main/res/layout/contacts.xml" value="0.5808605912802876" />
+        <entry key="app/src/main/res/layout/fragment_01.xml" value="0.3711164109250333" />
+        <entry key="app/src/main/res/layout/fragment_03.xml" value="0.14361702127659576" />
+        <entry key="app/src/main/res/layout/gallery_list_item.xml" value="0.14361702127659576" />
+        <entry key="app/src/main/res/layout/item_recycler.xml" value="0.29933471679687507" />
+        <entry key="app/src/main/res/layout/people.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/person.xml" value="0.39373168945312503" />
       </map>
     </option>
   </component>
