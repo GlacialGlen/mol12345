@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class Fragment02: Fragment() {
     private lateinit var recyclerView: RecyclerView
+    private val gallerySpanCount = 3
     private var imageList = mutableListOf<GalleryListData>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -20,16 +21,24 @@ class Fragment02: Fragment() {
 
         val galleryAdapter = GalleryAdapter()
         if (imageList.isEmpty()) {
-            for (i in 1..18) {
+            for (i in 1..21) {
                 imageList.add(GalleryListData(i))
             }
         }
         galleryAdapter.imageList = imageList
         recyclerView.adapter = galleryAdapter
 
-        val manager = GridLayoutManager(activity, 3)
+        val manager = GridLayoutManager(activity, gallerySpanCount)
         recyclerView.layoutManager = manager
 
         return fragmentView
+    }
+
+    fun collectImages(): MutableList<GalleryListData> {
+        var imageList: MutableList<GalleryListData> = mutableListOf()
+
+
+
+        return imageList
     }
 }
