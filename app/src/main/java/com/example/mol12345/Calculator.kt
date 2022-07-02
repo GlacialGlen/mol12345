@@ -47,6 +47,7 @@ class Calculator {
         }
         return retval
     }
+
     fun Call(new_data: String) : String{
         if (num_list.isEmpty() and (new_data == "0")){
             return "0"
@@ -73,6 +74,7 @@ class Calculator {
             }
         }
     }
+
     private fun Call_Num(new_data : String) : String {
         when(latest){
             "" -> {
@@ -274,6 +276,7 @@ class Calculator {
         return num_list.last()
     }
     private fun Call_Per(new_data : String) : String {
+
         if (num_list.isEmpty()) {
             return "0"
         }
@@ -283,7 +286,6 @@ class Calculator {
             num_list[num_list.lastIndex] = new.toString()
             latest = num_list[num_list.lastIndex]
         }
-//        num_list[num_list.lastIndex] = RemoveZeros(num_list.last())
         return num_list.last()
     }
     private fun Clear() : String{
