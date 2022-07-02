@@ -33,12 +33,6 @@ class GalleryAdapter(private val launcher: ActivityResultLauncher<Intent>): Recy
                 intent.putExtra("image_resource", imageResource)
                 context.startActivity(intent)
             }
-
-
-            val intent = Intent(Intent.ACTION_GET_CONTENT).setType("image/*")
-            val chooser = Intent.createChooser(intent, "choose image")
-            launcher.launch(intent)
-
         }
     }
 
