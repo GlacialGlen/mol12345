@@ -4,6 +4,7 @@ import java.lang.Error
 
 // 계산기의 '기능적'인 부분들
 class Calculator {
+
     private val num_list = mutableListOf<String>()
     private val op_list = mutableListOf<String>()
     private var lastOp : String = ""
@@ -47,6 +48,7 @@ class Calculator {
         }
         return retval
     }
+
     fun Call(new_data: String) : String{
         if (num_list.isEmpty() and (new_data == "0")){
             return "0"
@@ -73,6 +75,7 @@ class Calculator {
             }
         }
     }
+
     private fun Call_Num(new_data : String) : String {
         when(latest){
             "" -> {

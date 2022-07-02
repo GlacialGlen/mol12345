@@ -1,29 +1,31 @@
 package com.example.mol12345
 
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager2.widget.ViewPager2
 
 class GalleryShowActivity: AppCompatActivity() {
-    private lateinit var galleryLargeImage: ImageView
-    private lateinit var galleryLargeTitle: TextView
+
+    private var imageList = mutableListOf<GalleryListData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_gallery_large)
+        setContentView(R.layout.activity_gallery_main)
 
-        galleryLargeImage = findViewById(R.id.gallery_large_image)
-        galleryLargeTitle = findViewById(R.id.gallery_large_title)
-
-        val imageResource = intent.extras
-        if (imageResource == null) {
-            galleryLargeImage.setImageResource(R.drawable.image_default)
-            galleryLargeTitle.text = getString(R.string.no_image)
+        val viewPager: ViewPager2 = findViewById(R.id.gallery_scroll_viewpager)
+        val galleryShowAdapter = GalleryShowAdapter(intent)
+        if (imageList.isEmpty()) {
+            for (i in 1..21) {
+                imageList.add(GalleryListData(i))
+            }
         }
-        else {
-            galleryLargeImage.setImageResource(imageResource.getInt("image_resource"))
-            galleryLargeTitle.text = "Image ${imageResource.getInt("image_number")}"
+        galleryShowAdapter.imageList = imageList
+        viewPager.adapter = galleryShowAdapter
+        val extras = intent.extras
+        if (extras == null) {
+            viewPager.currentItem = 0
+        } else {
+            viewPager.currentItem = extras.getInt("image_number") - 1
         }
     }
 }
