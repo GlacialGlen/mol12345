@@ -81,7 +81,7 @@ class Fragment03: Fragment() {
             val buttonResource = context.resources.getIdentifier(data.name, "string", context.packageName)
 
             buttonView.text = getString(buttonResource)
-            buttonView.textSize = 30f
+            buttonView.textSize = 25f
             buttonView.setTextColor(parseColor(data.colors.textColor))
 
             handleButtonColor(buttonView, data.colors)
@@ -92,7 +92,6 @@ class Fragment03: Fragment() {
                 handleButtonHighlight(fragmentView, buttonView, data.id)
 
             }
-            buttonView.background = AppCompatResources.getDrawable(context, R.drawable.roundcorner)
         }
 
         return fragmentView
