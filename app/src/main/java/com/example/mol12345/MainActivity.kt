@@ -11,9 +11,16 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
+    private val galleryPermissions = arrayOf(
+        android.Manifest.permission.READ_EXTERNAL_STORAGE,
+    )
+    private val galleryRequestCode = 700
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        requestPermissions(galleryPermissions, galleryRequestCode)
 
         val viewPager: ViewPager2 = findViewById(R.id.viewPager)
         val viewpagerFragmentAdapter = ViewpagerFragmentAdapter(this)

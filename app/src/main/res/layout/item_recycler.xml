@@ -9,53 +9,65 @@
     android:paddingHorizontal="30dp"
     android:paddingVertical="10dp">
 
-    <TextView
-        android:id="@+id/tv_rv_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="박강우"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        android:textStyle="bold"
+<!--    <TextView-->
+<!--        android:id="@+id/tv_rv_name"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="박강우"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="12sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/tv_rv_number"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="-2dp"-->
+<!--        android:text="010-0000-0000"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="12sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/tv_rv_name"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/call"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/tv_rv_name" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/call"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="84dp"-->
+<!--        android:text="전화"-->
+<!--        android:textSize="12sp"-->
+<!--        app:backgroundTint="#4CAF50"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/tv_rv_number"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
+    <Button
+        android:id="@+id/name"
+        android:layout_width="204dp"
+        android:layout_height="53dp"
+        android:text="이름"
+        android:textColor="#616161"
+        android:textSize="15sp"
+        app:backgroundTint="#EFDEDE"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.589" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="71dp"
+        android:layout_height="75dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/tv_rv_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="-2dp"
-        android:text="010-0000-0000"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tv_rv_name"
-        app:layout_constraintEnd_toStartOf="@+id/call"
-        app:layout_constraintStart_toEndOf="@+id/tv_rv_name" />
-
-    <Button
-        android:id="@+id/call"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="84dp"
-        android:text="전화"
-        android:textSize="12sp"
-        app:backgroundTint="#4CAF50"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tv_rv_number"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="문자"
-        android:textSize="12sp"
-        app:backgroundTint="#00BCD4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/call"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/person" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

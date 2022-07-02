@@ -1,31 +1,25 @@
 package com.example.mol12345
 
-import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mol12345.databinding.Fragment01Binding
 import com.example.mol12345.databinding.ItemRecyclerBinding
 
 data class Data1(
     val name : String,
+    val nick : String,
     val number : String,
 )
 
-class fragment01Adapter : RecyclerView.Adapter<fragment01Adapter.MyViewHolder>(){
+class ContactAdapter : RecyclerView.Adapter<ContactAdapter.MyViewHolder>(){
     var data = mutableListOf<Data1>()
-    lateinit var pa:ViewGroup
     private var _bb : ItemRecyclerBinding? = null
     private val bbinding get() = _bb!!
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         _bb = ItemRecyclerBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         val binding = bbinding//ItemRecyclerBinding.inflate(LayoutInflater.from(parent.context),parent,false)
 //        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_recycler,parent,false)
-        pa = parent
         return MyViewHolder(binding)
     }
 
@@ -35,23 +29,17 @@ class fragment01Adapter : RecyclerView.Adapter<fragment01Adapter.MyViewHolder>()
         holder.bind(data[position])
     }
     inner class MyViewHolder(val binding: ItemRecyclerBinding) : RecyclerView.ViewHolder(binding.root) {
-//        init {
-//
-//        }//check
-        fun bind(layoutData: Data1) {
-            binding.tvRvName.text = layoutData.name
-            binding.tvRvNumber.text = layoutData.number
-            binding.call.setOnClickListener {M1()}
-            binding.message.setOnClickListener {M2()}
-        }
-        fun M1(){
-            Toast.makeText(pa.context,"calling"
-            ,Toast.LENGTH_SHORT).show()
-        }
 
-        fun M2(){
-            Toast.makeText(pa.context,"sending message"
-                ,Toast.LENGTH_SHORT).show()
+        fun bind(layoutData: Data1) {
+            binding.name.text = layoutData.name
+            val context = binding.name.context
+            binding.name.setOnClickListener {
+                val intent = Intent(context, ContactActivity::class.java)
+                intent.putExtra("Human_name",layoutData.name)
+                intent.putExtra("Human_nick",layoutData.nick)
+                intent.putExtra("Phone_number",layoutData.number)
+                context.startActivity(intent)
+            }
         }
     }
 
