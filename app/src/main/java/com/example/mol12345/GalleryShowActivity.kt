@@ -10,7 +10,6 @@ class GalleryShowActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_gallery_large)
         setContentView(R.layout.activity_gallery_main)
 
         val viewPager: ViewPager2 = findViewById(R.id.gallery_scroll_viewpager)

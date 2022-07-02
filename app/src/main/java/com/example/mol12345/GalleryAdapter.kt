@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.result.ActivityResultLauncher
 import androidx.recyclerview.widget.RecyclerView
 
-class GalleryAdapter: RecyclerView.Adapter<GalleryAdapter.GalleryHolder>() {
+//
+class GalleryAdapter(private val launcher: ActivityResultLauncher<Intent>): RecyclerView.Adapter<GalleryAdapter.GalleryHolder>() {
     var imageList = mutableListOf<GalleryListData>()
 
     inner class GalleryHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -19,10 +21,10 @@ class GalleryAdapter: RecyclerView.Adapter<GalleryAdapter.GalleryHolder>() {
 
         fun setImage(listData: GalleryListData) {   // for binding
             val uri = "image_${listData.image_number}"
-//            val context = idImageView.context
+
             val context = idImageButton.context
             val imageResource = context.resources.getIdentifier(uri, "drawable", context.packageName)
-//            idImageView.setImageResource(imageResource)
+
             idImageButton.setImageResource(imageResource)
             idImageButton.adjustViewBounds = true
             idImageButton.setOnClickListener {
@@ -31,6 +33,12 @@ class GalleryAdapter: RecyclerView.Adapter<GalleryAdapter.GalleryHolder>() {
                 intent.putExtra("image_resource", imageResource)
                 context.startActivity(intent)
             }
+
+
+            val intent = Intent(Intent.ACTION_GET_CONTENT).setType("image/*")
+            val chooser = Intent.createChooser(intent, "choose image")
+            launcher.launch(intent)
+
         }
     }
 
