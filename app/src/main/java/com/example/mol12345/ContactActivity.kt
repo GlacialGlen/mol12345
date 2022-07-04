@@ -1,9 +1,13 @@
 package com.example.mol12345
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +16,7 @@ import com.example.mol12345.databinding.ContactsBinding
 class ContactActivity : AppCompatActivity() {
     lateinit var binding : ContactsBinding
     private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
+    private var id : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
@@ -30,11 +35,13 @@ class ContactActivity : AppCompatActivity() {
 
         val humanResource : Bundle? = intent.extras
         if (humanResource == null){
+            id = 0
             binding.humanName.text = "Not found"
             binding.humanNickname.text = "Not found"
             binding.phoneNumber.text = "010-0000-0000"
         }
         else{
+            id = humanResource.getInt("id")
             binding.humanName.text = humanResource.getString("Human_name")
             binding.humanNickname.text = humanResource.getString("Human_nick")
             binding.phoneNumber.text = humanResource.getString("Phone_number")
@@ -57,6 +64,7 @@ class ContactActivity : AppCompatActivity() {
 
             binding.edit.setOnClickListener {//edit
                 val intent = Intent(this, EditContactsActivity::class.java)
+                intent.putExtra("edit_id",id)
                 intent.putExtra("edit_human_name",binding.humanName.text.toString())
                 intent.putExtra("edit_human_nick",binding.humanNickname.text.toString())
                 intent.putExtra("edit_phone_number",binding.phoneNumber.text.toString())
@@ -64,10 +72,4 @@ class ContactActivity : AppCompatActivity() {
             }
         }
     }
-
-//    override fun onBackPressed() {
-//        super.onBackPressed()
-//
-//    }
-
 }
