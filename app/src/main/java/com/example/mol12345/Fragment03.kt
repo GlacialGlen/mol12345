@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.TextView
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 
 class Fragment03: Fragment() {
@@ -86,7 +84,7 @@ class Fragment03: Fragment() {
 
             handleButtonColor(buttonView, data.colors)
             buttonView.setOnClickListener {
-                text.text = cal.Call(buttonView.text as String)
+                text.text = cal.call(buttonView.text as String)
 
                 handleClear(acButton, data.id)
                 handleButtonHighlight(fragmentView, buttonView, data.id)

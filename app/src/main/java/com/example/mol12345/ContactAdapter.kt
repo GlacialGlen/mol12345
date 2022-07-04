@@ -3,7 +3,6 @@ package com.example.mol12345
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.activity.result.ActivityResultLauncher
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mol12345.databinding.ItemRecyclerBinding
 
@@ -30,7 +29,7 @@ class ContactAdapter : RecyclerView.Adapter<ContactAdapter.MyViewHolder>(){
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(data[position])
     }
-    inner class MyViewHolder(val binding: ItemRecyclerBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class MyViewHolder(private val binding: ItemRecyclerBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(layoutData: Data1) {
             binding.name.text = layoutData.name

@@ -1,20 +1,16 @@
 package com.example.mol12345
 
-import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
-import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mol12345.databinding.ContactsBinding
 
 class ContactActivity : AppCompatActivity() {
-    lateinit var binding : ContactsBinding
+    private lateinit var binding : ContactsBinding
     private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
     private var id : Int = 0
 
@@ -36,9 +32,9 @@ class ContactActivity : AppCompatActivity() {
         val humanResource : Bundle? = intent.extras
         if (humanResource == null){
             id = 0
-            binding.humanName.text = "Not found"
-            binding.humanNickname.text = "Not found"
-            binding.phoneNumber.text = "010-0000-0000"
+            binding.humanName.text = getString(R.string.contact_not_found)
+            binding.humanNickname.text = getString(R.string.contact_not_found)
+            binding.phoneNumber.text = getString(R.string.humanpnum)
         }
         else{
             id = humanResource.getInt("id")
@@ -49,16 +45,16 @@ class ContactActivity : AppCompatActivity() {
             binding.calling.setOnClickListener {
                 Toast.makeText(this,"전화 연결",
                 Toast.LENGTH_SHORT).show()
-                val number : String = "tel:${binding.phoneNumber.text.toString()}"
-                val intent : Intent = Intent(Intent.ACTION_VIEW,Uri.parse(number))
+                val number = "tel:${binding.phoneNumber.text}"
+                val intent = Intent(Intent.ACTION_VIEW,Uri.parse(number))
                 startActivity(intent)
             }
 
             binding.sendMessage.setOnClickListener {
                 Toast.makeText(this,"메세지 전송",
                 Toast.LENGTH_SHORT).show()
-                val number : String = "smsto:${binding.phoneNumber.text.toString()}"
-                val intent : Intent = Intent(Intent.ACTION_SENDTO, Uri.parse(number))
+                val number = "smsto:${binding.phoneNumber.text}"
+                val intent = Intent(Intent.ACTION_SENDTO, Uri.parse(number))
                 startActivity(intent)
             }
 

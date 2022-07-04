@@ -1,5 +1,6 @@
 package com.example.mol12345
 
+import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,15 +23,9 @@ import java.lang.NullPointerException
 
 
 class Fragment01: Fragment() {
-    lateinit var profileAdapter: ContactAdapter
-//    private val datas : MutableList<Data1> = mutableListOf((Data1(id = 1,name = "박강우", nick = "강우", number = "010-0110-1111"))
-//            ,(Data1(id = 2,name = "김성혁", nick = "그림 장인 김화백", number = "010-0020-1111"))
-//            ,(Data1(id = 3,name = "김성애", nick = "사랑둥이", number = "010-0250-1111"))
-//            ,(Data1(id = 4,name = "김기현", nick = "술꾼", number = "010-0570-1111"))
-//            ,(Data1(id = 5,name = "김예은", nick = "너구리", number = "010-0690-1111"))
-//            ,(Data1(id = 6,name = "변경호", nick = "경호", number = "010-0100-1111")))
-    private val datas: MutableList<Data1> = mutableListOf()
-    private var id_num :Int = 7
+    private lateinit var profileAdapter: ContactAdapter
+    private val dataList: MutableList<Data1> = mutableListOf()
+    private var idNum :Int = 7
     private var _binding : Fragment01Binding? = null
     private val binding get() = _binding!!
     private val gson = Gson()
@@ -40,7 +36,7 @@ class Fragment01: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = Fragment01Binding.inflate(inflater,container,false)
         val view = binding.root
         sharedManager = SharedManager(view.context)
@@ -49,16 +45,15 @@ class Fragment01: Fragment() {
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
             {
                 if(it.resultCode == RESULT_OK){
-                    var d = Data1(id = id_num++, name = it.data?.getStringExtra("edit_human_name")?:"name",
+                    val d = Data1(id = idNum++, name = it.data?.getStringExtra("edit_human_name")?:"name",
                         nick = it.data?.getStringExtra("edit_human_nick")?:"nickname",
                         number = it.data?.getStringExtra("edit_phone_number")?:"010-0000-0000")
-                    datas.add(d)
-                    profileAdapter?.notifyDataSetChanged()
+                    dataList.add(d)
+                    profileAdapter.notifyDataSetChanged()
                 }
             }
 
         profileAdapter = ContactAdapter()
-//        profileAdapter.data = datas
         readContactsFromJson()
         binding.rvProfile.adapter = profileAdapter
         binding.rvProfile.layoutManager = LinearLayoutManager(view.context)
@@ -78,15 +73,15 @@ class Fragment01: Fragment() {
 
     override fun onResume() {
         super.onResume()
-        var data1 : Data1 = sharedManager.getCurrentData()
-        for(i in datas){
+        val data1 : Data1 = sharedManager.getCurrentData()
+        for(i in dataList){
             if(i.id == data1.id){
                 i.name = data1.name
                 i.nick = data1.nick
                 i.number = data1.number
             }
         }
-        profileAdapter?.notifyDataSetChanged()
+        profileAdapter.notifyDataSetChanged()
     }
 
     private fun readContactsFromJson() {
@@ -99,7 +94,7 @@ class Fragment01: Fragment() {
             if (inputStream != null) {
                 val inputStreamReader = InputStreamReader(inputStream)
                 val bufferedReader = BufferedReader(inputStreamReader)
-                var receiveString: String? = ""
+                var receiveString: String?
                 val stringBuilder = StringBuilder()
                 while (bufferedReader.readLine().also { receiveString = it } != null) {
                     stringBuilder.append(receiveString)
@@ -112,8 +107,8 @@ class Fragment01: Fragment() {
             try {
                 val data: MutableList<String> = gson.fromJson(jsonString, itemType)
                 for (d in data) {
-                    datas.add(gson.fromJson(d, Data1::class.java))
-                    id_num += 1
+                    dataList.add(gson.fromJson(d, Data1::class.java))
+                    idNum += 1
                 }
             }
             catch (_: NullPointerException) {
@@ -128,7 +123,7 @@ class Fragment01: Fragment() {
             e.printStackTrace()
         }
 
-        profileAdapter.data = datas
+        profileAdapter.data = dataList
     }
 
     private fun writeContactsToJson() {
@@ -139,7 +134,7 @@ class Fragment01: Fragment() {
             val fileWriter = FileWriter(jsonFile)
             val jsonTotalObject = JsonArray()
 
-            for (data in datas) {
+            for (data in dataList) {
                 val jsonEntry = gson.toJson(data)
                 jsonTotalObject.add(jsonEntry)
             }

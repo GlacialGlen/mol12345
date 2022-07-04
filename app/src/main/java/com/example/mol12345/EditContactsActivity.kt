@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mol12345.databinding.EditContanctsBinding
 
 class EditContactsActivity : AppCompatActivity() {
-    lateinit var  binding : EditContanctsBinding
+    private lateinit var binding : EditContanctsBinding
     private lateinit var sharedManager: SharedManager
     private var id : Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,9 +17,9 @@ class EditContactsActivity : AppCompatActivity() {
         sharedManager = SharedManager(this)
         val editorResource : Bundle? = intent.extras
         if(editorResource == null){
-            binding.editHumanName.setText("Not found")
-            binding.editHumanNickname.setText("Not found")
-            binding.editPhoneNumber.setText("010-0000-0000")
+            binding.editHumanName.setText(getString(R.string.contact_not_found))
+            binding.editHumanNickname.setText(R.string.contact_not_found)
+            binding.editPhoneNumber.setText(R.string.humanpnum)
         }
         else {
             id = editorResource.getInt("edit_id")
@@ -29,16 +29,16 @@ class EditContactsActivity : AppCompatActivity() {
         }
 
         binding.editHumanName.setOnEditorActionListener{
-                v, actionId, event -> false
+                _, _, _ -> false
         }
         binding.editHumanNickname.setOnEditorActionListener{
-                v, actionId, event -> false
+                _, _, _ -> false
         }
         binding.editPhoneNumber.setOnEditorActionListener {
-                v, actionId, event -> false
+                _, _, _ -> false
         }
         binding.store.setOnClickListener {
-            val intent : Intent = Intent(this, ContactActivity::class.java)
+            val intent = Intent(this, ContactActivity::class.java)
             intent.putExtra("edit_human_name", binding.editHumanName.text.toString())
             intent.putExtra("edit_human_nick", binding.editHumanNickname.text.toString())
             intent.putExtra("edit_phone_number", binding.editPhoneNumber.text.toString())
