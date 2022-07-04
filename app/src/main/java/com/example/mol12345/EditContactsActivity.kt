@@ -8,12 +8,13 @@ import com.example.mol12345.databinding.EditContanctsBinding
 
 class EditContactsActivity : AppCompatActivity() {
     lateinit var  binding : EditContanctsBinding
-
+    private lateinit var sharedManager: SharedManager
+    private var id : Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = EditContanctsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        sharedManager = SharedManager(this)
         val editorResource : Bundle? = intent.extras
         if(editorResource == null){
             binding.editHumanName.setText("Not found")
@@ -21,10 +22,10 @@ class EditContactsActivity : AppCompatActivity() {
             binding.editPhoneNumber.setText("010-0000-0000")
         }
         else {
+            id = editorResource.getInt("edit_id")
             binding.editHumanName.setText(editorResource.getString("edit_human_name"))
             binding.editHumanNickname.setText(editorResource.getString("edit_human_nick"))
             binding.editPhoneNumber.setText(editorResource.getString("edit_phone_number"))
-
         }
 
         binding.editHumanName.setOnEditorActionListener{
@@ -41,13 +42,13 @@ class EditContactsActivity : AppCompatActivity() {
             intent.putExtra("edit_human_name", binding.editHumanName.text.toString())
             intent.putExtra("edit_human_nick", binding.editHumanNickname.text.toString())
             intent.putExtra("edit_phone_number", binding.editPhoneNumber.text.toString())
+            sharedManager.saveCurrentData(Data1(id = id, name = binding.editHumanName.text.toString(),
+                nick = binding.editHumanNickname.text.toString(), number = binding.editPhoneNumber.text.toString()))
             setResult(Activity.RESULT_OK, intent)
             if(!isFinishing) finish()
         }
         binding.back.setOnClickListener {
             if(!isFinishing) finish()
         }
-
-
     }
 }
