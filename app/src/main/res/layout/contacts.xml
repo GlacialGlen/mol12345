@@ -9,9 +9,13 @@
     android:layout_gravity="center_vertical"
     >
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="62dp" />
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_editor"
+        android:textColor="#000000"
+        app:backgroundTint="#FFFFFF" />
 
     <ImageView
         android:id="@+id/human_image"
@@ -75,7 +79,9 @@
             android:id="@+id/calling"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/calling" />
+            android:text="@string/calling"
+            android:textColor = "#0000FF"
+            app:backgroundTint="#FFFFFF"/>
 
         <Space
             android:layout_width="45dp"
@@ -86,7 +92,9 @@
             android:id="@+id/send_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/messaging" />
+            android:text="@string/messaging"
+            android:textColor = "#0000FF"
+            app:backgroundTint="#FFFFFF"/>
 
         <Space
             android:layout_width="wrap_content"
