@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mol12345.databinding.ItemRecyclerBinding
 
 data class Data1(
+    val id : Int,
     val name : String,
     val nick : String,
     val number : String,
@@ -16,10 +17,10 @@ class ContactAdapter : RecyclerView.Adapter<ContactAdapter.MyViewHolder>(){
     var data = mutableListOf<Data1>()
     private var _bb : ItemRecyclerBinding? = null
     private val bbinding get() = _bb!!
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         _bb = ItemRecyclerBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        val binding = bbinding//ItemRecyclerBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-//        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_recycler,parent,false)
+        val binding = bbinding
         return MyViewHolder(binding)
     }
 
@@ -42,6 +43,4 @@ class ContactAdapter : RecyclerView.Adapter<ContactAdapter.MyViewHolder>(){
             }
         }
     }
-
-
 }

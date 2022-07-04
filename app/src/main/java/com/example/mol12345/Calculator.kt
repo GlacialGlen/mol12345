@@ -87,7 +87,7 @@ class Calculator {
             }
             "=" -> {
                 num_list.clear()
-                num_list[0] = new_data
+                num_list.add(new_data)
                 latest = new_data
             }
             else -> {
@@ -187,7 +187,6 @@ class Calculator {
                     num_list[i] = result
                     op_list.removeAt(i)
                 }
-                latest = new_data
             }
         }
         else {
@@ -216,10 +215,9 @@ class Calculator {
                 }
             }
             //num1 op num2 == -> num1 op num2 op num2
-            latest = new_data
-        }
 
-        num_list[num_list.lastIndex] = RemoveZeros(num_list.last())
+        }
+        latest = new_data
         return num_list.last()
     }
     private fun Call_Dot(new_data : String) : String{
@@ -282,9 +280,11 @@ class Calculator {
         }
         else if(latest.toDoubleOrNull() != null){
             var new : Double = num_list.last().toDouble()
-            new /= 100
-            num_list[num_list.lastIndex] = new.toString()
-            latest = num_list[num_list.lastIndex]
+            if (new != 0.0) {
+                new /= 100
+                num_list[num_list.lastIndex] = new.toString()
+                latest = num_list[num_list.lastIndex]
+            }
         }
         return num_list.last()
     }

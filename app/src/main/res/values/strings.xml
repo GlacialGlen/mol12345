@@ -9,6 +9,9 @@
     <string name="humannick">nickname</string>
     <string name="calling">전화 걸기</string>
     <string name="messaging">메세지 보내기</string>
+    <string name="store">저장</string>
+    <string name="back">돌아가기</string>
+    <string name="contact_editor">편집</string>
     <string name="calculator_zero">0</string>
     <string name="calculator_button_ac">AC</string>
     <string name="calculator_button_c">C</string>

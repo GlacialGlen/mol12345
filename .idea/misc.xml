@@ -13,6 +13,20 @@
         <entry key="..\:/Projects/mol12345/app/src/main/res/layout/fragment_03.xml" value="0.286231884057971" />
         <entry key="..\:/Projects/mol12345/app/src/main/res/layout/gallery_list_item.xml" value="0.1" />
         <entry key="..\:/Projects/mol12345/app/src/main/res/layout/item_recycler.xml" value="0.1634963768115942" />
+        <entry key="app/src/main/res/drawable/calling.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/callingxml.xml" value="0.1505" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1505" />
+        <entry key="app/src/main/res/drawable/messagexml.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/personxml.xml" value="0.1505" />
+        <entry key="app/src/main/res/layout/activity_gallery_large.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_gallery_main.xml" value="0.1956521739130435" />
+        <entry key="app/src/main/res/layout/contacts.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/edit_contancts.xml" value="0.23173803526448364" />
+        <entry key="app/src/main/res/layout/fragment_01.xml" value="0.2881057739257813" />
+        <entry key="app/src/main/res/layout/fragment_02.xml" value="0.1956521739130435" />
+        <entry key="app/src/main/res/layout/fragment_03.xml" value="0.1956521739130435" />
+        <entry key="app/src/main/res/layout/gallery_list_item.xml" value="0.1956521739130435" />
+        <entry key="app/src/main/res/layout/item_recycler.xml" value="0.26618499755859376" />
       </map>
     </option>
   </component>
