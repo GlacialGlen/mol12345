@@ -1,15 +1,17 @@
 package com.example.mol12345
 
-import android.app.Activity.RESULT_OK
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.nio.file.Files
+import java.nio.file.Paths
 
 class Fragment02: Fragment() {
     private lateinit var recyclerView: RecyclerView
@@ -22,18 +24,25 @@ class Fragment02: Fragment() {
 
         recyclerView = fragmentView.findViewById(R.id.gallery_recycler_view)
 
-        val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            result -> if (result.resultCode == RESULT_OK) {
-                Log.d("AAAAAAAA", "BBBBBBBB")
-            }
-        }
-
-//        val galleryAdapter = GalleryAdapter()
-        val galleryAdapter = GalleryAdapter(launcher)
+        val galleryAdapter = GalleryAdapter()
         if (imageList.isEmpty()) {
-            for (i in 1..21) {
-                imageList.add(GalleryListData(i))
-            }
+            val validFileExtensions = listOf("png", "jpg", "jpeg", "gif")
+            val uri = Uri.parse("file:///" + Environment.getExternalStorageDirectory())
+            val paths = Paths.get(uri.path!!)
+            var num = 0
+            Files.walk(paths, 2)
+                .filter(Files::isRegularFile)
+                .filter { x ->
+                    validFileExtensions.fold(false) { acc, ext ->
+                        acc || x.fileName.toString().endsWith(ext)
+                    }
+                }
+                .forEach {
+                    Log.d("IMAGE", "$it")
+
+                    imageList.add(GalleryListData(Uri.parse(it.toUri().toString()), num))
+                    num += 1
+                }
         }
         galleryAdapter.imageList = imageList
         recyclerView.adapter = galleryAdapter
@@ -44,11 +53,4 @@ class Fragment02: Fragment() {
         return fragmentView
     }
 
-    fun collectImages(): MutableList<GalleryListData> {
-        var imageList: MutableList<GalleryListData> = mutableListOf()
-
-
-
-        return imageList
-    }
 }

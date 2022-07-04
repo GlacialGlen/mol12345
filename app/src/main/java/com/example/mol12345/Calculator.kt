@@ -1,32 +1,29 @@
 package com.example.mol12345
 
-import java.lang.Error
-
-// 계산기의 '기능적'인 부분들
 class Calculator {
-    private val num_list = mutableListOf<String>()
-    private val op_list = mutableListOf<String>()
+    private val numList = mutableListOf<String>()
+    private val opList = mutableListOf<String>()
     private var lastOp : String = ""
     private var lastNumber : String = "0"
     private var latest : String = ""
-    private fun RemoveZeros(str : String) : String{
-        val doub : Double = str.toDouble()
+    private fun removeZeros(str : String) : String{
+        val doubleNum : Double = str.toDouble()
         val result : String =
-            if(doub.toInt().toDouble() == doub){
-                doub.toInt().toString()
+            if(doubleNum.toInt().toDouble() == doubleNum){
+                doubleNum.toInt().toString()
             }else{
-                doub.toString()
+                doubleNum.toString()
             }
         return result
     }
-    private fun Calculating(in1 : String,in2 : String, op : String) : String{
+    private fun calculating(in1 : String, in2 : String, op : String) : String{
         val old: Double = in1.toDouble()
         val new: Double = in2.toDouble()
-        val d_result: Double =
+        val dResult: Double =
             when (op) {
                 "÷" -> {
                     if (new == 0.0) {
-                        Clear()
+                        clear()
                         return "오류"
                     } else {
                         old / new
@@ -39,34 +36,34 @@ class Calculator {
                     return "0.0"
                 }
             }
-        val retval : String = if(d_result.toInt().toDouble() == d_result){
-            d_result.toInt().toString()
+        val retVal : String = if(dResult.toInt().toDouble() == dResult){
+            dResult.toInt().toString()
         }
         else{
-            d_result.toString()
+            dResult.toString()
         }
-        return retval
+        return retVal
     }
 
-    fun Call(new_data: String) : String{
-        if (num_list.isEmpty() and (new_data == "0")){
+    fun call(new_data: String) : String{
+        if (numList.isEmpty() and (new_data == "0")){
             return "0"
         }
         when(new_data) {
             "0","1","2","3","4","5","6","7","8","9" ->
-                return Call_Num(new_data)
+                return callNum(new_data)
             "C","AC" ->
-                return Clear()
+                return clear()
             "." ->
-                return Call_Dot(new_data)
+                return callDot()
             "+/-" ->
-                return Call_Neg(new_data)
+                return callNeg()
             "=" ->
-                return Call_Cal(new_data)
+                return callCal(new_data)
             "÷","×","-","+" ->
-                return Call_Op(new_data)
+                return callOp(new_data)
             "%" ->
-                return Call_Per(new_data)
+                return callPer()
 
             else -> {
                 println("why you come here?")
@@ -75,77 +72,77 @@ class Calculator {
         }
     }
 
-    private fun Call_Num(new_data : String) : String {
+    private fun callNum(new_data : String) : String {
         when(latest){
             "" -> {
-                num_list.add(new_data)
-                latest = num_list.last()
+                numList.add(new_data)
+                latest = numList.last()
             }
             "÷","×","-","+" -> {
-                num_list.add(new_data)
-                latest = num_list.last()
+                numList.add(new_data)
+                latest = numList.last()
             }
             "=" -> {
-                num_list.clear()
-                num_list[0] = new_data
+                numList.clear()
+                numList.add(new_data)
                 latest = new_data
             }
             else -> {
-                if(num_list[num_list.lastIndex] == "-0"){
-                    num_list[num_list.lastIndex] = "-$new_data"
+                if(numList[numList.lastIndex] == "-0"){
+                    numList[numList.lastIndex] = "-$new_data"
                 }
-                else {
-                    num_list[num_list.lastIndex] = num_list.last().plus(new_data)
+                else if (numList[numList.lastIndex].length < 9) {
+                    numList[numList.lastIndex] = numList.last().plus(new_data)
                 }
-                latest = num_list.last()
+                latest = numList.last()
             }
         }
-        num_list[num_list.lastIndex] = RemoveZeros(num_list.last())
-        return num_list.last()
+        numList[numList.lastIndex] = removeZeros(numList.last())
+        return numList.last()
     }
-    private fun Call_Op(new_data : String) : String {
+    private fun callOp(new_data : String) : String {
         when(latest) {
             "" -> {
-                num_list.add("0")
+                numList.add("0")
             }
             "=" -> {
-                if(num_list.isEmpty()){
-                    num_list.add("0")
+                if(numList.isEmpty()){
+                    numList.add("0")
                 }
 
             }
             "÷", "×", "-", "+" -> {
-                op_list.removeAt(op_list.lastIndex)
+                opList.removeAt(opList.lastIndex)
             }
             else -> {
-                while(op_list.isNotEmpty()) {
-                    when (op_list.last()) {
+                while(opList.isNotEmpty()) {
+                    when (opList.last()) {
                         "÷", "×" -> {
-                            val result: String = Calculating(
-                                num_list[num_list.lastIndex - 1],
-                                num_list[num_list.lastIndex],
-                                op_list.last()
+                            val result: String = calculating(
+                                numList[numList.lastIndex - 1],
+                                numList[numList.lastIndex],
+                                opList.last()
                             )
                             if(result == "오류"){
                                 return result
                             }
-                            num_list.removeAt(num_list.lastIndex)
-                            num_list[num_list.lastIndex] = result
-                            op_list.removeAt(op_list.lastIndex)
+                            numList.removeAt(numList.lastIndex)
+                            numList[numList.lastIndex] = result
+                            opList.removeAt(opList.lastIndex)
                         }
                         "-", "+" -> {
                             if ((new_data == "+") or (new_data == "-")) {
-                                val result: String = Calculating(
-                                    num_list[num_list.lastIndex - 1],
-                                    num_list[num_list.lastIndex],
-                                    op_list.last()
+                                val result: String = calculating(
+                                    numList[numList.lastIndex - 1],
+                                    numList[numList.lastIndex],
+                                    opList.last()
                                 )
                                 if(result == "오류"){
                                     return result
                                 }
-                                num_list.removeAt(num_list.lastIndex)
-                                num_list[num_list.lastIndex] = result
-                                op_list.removeAt(op_list.lastIndex)
+                                numList.removeAt(numList.lastIndex)
+                                numList[numList.lastIndex] = result
+                                opList.removeAt(opList.lastIndex)
                             }
                             else{
                                 break
@@ -155,60 +152,59 @@ class Calculator {
                 }
             }
         }
-        op_list.add(new_data)
+        opList.add(new_data)
         latest = new_data
-        num_list[num_list.lastIndex] = RemoveZeros(num_list.last())
-        return num_list.last()
+        numList[numList.lastIndex] = removeZeros(numList.last())
+        return numList.last()
     }
-    private fun Call_Cal(new_data : String) : String{
+    private fun callCal(new_data : String) : String{
         //num1 op num2 = -> old : num2, new : result, op : op, latest : =
         if(latest.toDoubleOrNull() != null){
-            lastNumber = num_list.last()
+            lastNumber = numList.last()
 
-            if(op_list.isNotEmpty()) {
-                lastOp = op_list.last()
-                for (i: Int in 0..op_list.lastIndex) {
-                    if ((op_list[i] == "÷") or (op_list[i] == "×")) {
-                        val result: String = Calculating(num_list[i], num_list[i + 1], op_list[i])
+            if(opList.isNotEmpty()) {
+                lastOp = opList.last()
+                for (i: Int in 0..opList.lastIndex) {
+                    if ((opList[i] == "÷") or (opList[i] == "×")) {
+                        val result: String = calculating(numList[i], numList[i + 1], opList[i])
                         if (result == "오류") {
                             return result
                         }
-                        num_list.removeAt(i + 1)
-                        num_list[i] = result
-                        op_list.removeAt(i)
+                        numList.removeAt(i + 1)
+                        numList[i] = result
+                        opList.removeAt(i)
                     }
                 }
-                for (i: Int in 0..op_list.lastIndex) {
-                    val result: String = Calculating(num_list[i], num_list[i + 1], op_list[i])
+                for (i: Int in 0..opList.lastIndex) {
+                    val result: String = calculating(numList[i], numList[i + 1], opList[i])
                     if (result == "오류") {
                         return result
                     }
-                    num_list.removeAt(i + 1)
-                    num_list[i] = result
-                    op_list.removeAt(i)
+                    numList.removeAt(i + 1)
+                    numList[i] = result
+                    opList.removeAt(i)
                 }
-                latest = new_data
             }
         }
         else {
             //num op = -> num op num -> old : num, new : result, op : op, latest : =
             when(latest){
                 "÷","×","-","+" -> {
-                    lastOp = op_list.last()
-                    lastNumber = num_list.last()
-                    val result : String = Calculating(num_list[num_list.lastIndex],lastNumber,lastOp)
+                    lastOp = opList.last()
+                    lastNumber = numList.last()
+                    val result : String = calculating(numList[numList.lastIndex],lastNumber,lastOp)
                     if(result == "오류"){
                         return  result
                     }
-                    num_list[num_list.lastIndex] = result
-                    op_list.removeAt(op_list.lastIndex)
+                    numList[numList.lastIndex] = result
+                    opList.removeAt(opList.lastIndex)
                 }
                 "=" -> {
-                    val result : String = Calculating(num_list[num_list.lastIndex],lastNumber,lastOp)
+                    val result : String = calculating(numList[numList.lastIndex],lastNumber,lastOp)
                     if(result == "오류"){
                         return result
                     }
-                    num_list[num_list.lastIndex] = result
+                    numList[numList.lastIndex] = result
 
                 }
                 else -> {
@@ -216,13 +212,12 @@ class Calculator {
                 }
             }
             //num1 op num2 == -> num1 op num2 op num2
-            latest = new_data
-        }
 
-        num_list[num_list.lastIndex] = RemoveZeros(num_list.last())
-        return num_list.last()
+        }
+        latest = new_data
+        return numList.last()
     }
-    private fun Call_Dot(new_data : String) : String{
+    private fun callDot() : String{
         when(latest.toIntOrNull()){
             null -> {//double,"",operator,"="
                 when(latest.toDoubleOrNull()){
@@ -230,39 +225,39 @@ class Calculator {
                         when(latest){
                             "=" -> {
 //                                num_list.last() =
-                                num_list[num_list.lastIndex] = num_list.last().plus(".")
-                                latest = num_list.last()
+                                numList[numList.lastIndex] = numList.last().plus(".")
+                                latest = numList.last()
                             }
-                            else -> {//새로운 num만들기 0.
-                                num_list.add("0.")
-                                latest = num_list.last()
+                            else -> {//새로운 num 만들기 0.
+                                numList.add("0.")
+                                latest = numList.last()
                             }
                         }
                     }
                     else -> {//double
-                        return num_list.last()
+                        return numList.last()
                     }
                 }
             }
             else -> {//int
 //                n_new =
-                num_list[num_list.lastIndex] = num_list.last().plus(".")
-                latest = num_list.last()
+                numList[numList.lastIndex] = numList.last().plus(".")
+                latest = numList.last()
             }
         }
-        return num_list.last()
+        return numList.last()
     }
-    private fun Call_Neg(new_data : String) : String{
-        if(num_list.isNotEmpty()){
-            if(num_list.last() == "0"){
-                num_list[num_list.lastIndex] = "-0"
+    private fun callNeg() : String{
+        if(numList.isNotEmpty()){
+            if(numList.last() == "0"){
+                numList[numList.lastIndex] = "-0"
             }
-            else if (num_list.last() == "-0"){
-                num_list[num_list.lastIndex] = "0"
+            else if (numList.last() == "-0"){
+                numList[numList.lastIndex] = "0"
             }
             else {
-                val new: Double = num_list.last().toDouble()
-                num_list[num_list.lastIndex] = if (new.toInt().toDouble() == new) {
+                val new: Double = numList.last().toDouble()
+                numList[numList.lastIndex] = if (new.toInt().toDouble() == new) {
                     (-(new.toInt())).toString()
                 } else {
                     (-new).toString()
@@ -270,27 +265,28 @@ class Calculator {
             }
         }
         else{
-            num_list.add("-0")
+            numList.add("-0")
         }
-        latest = num_list.last()
-        return num_list.last()
+        latest = numList.last()
+        return numList.last()
     }
-    private fun Call_Per(new_data : String) : String {
-
-        if (num_list.isEmpty()) {
+    private fun callPer() : String {
+        if (numList.isEmpty()) {
             return "0"
         }
         else if(latest.toDoubleOrNull() != null){
-            var new : Double = num_list.last().toDouble()
-            new /= 100
-            num_list[num_list.lastIndex] = new.toString()
-            latest = num_list[num_list.lastIndex]
+            var new : Double = numList.last().toDouble()
+            if (new != 0.0) {
+                new /= 100
+                numList[numList.lastIndex] = new.toString()
+                latest = numList[numList.lastIndex]
+            }
         }
-        return num_list.last()
+        return numList.last()
     }
-    private fun Clear() : String{
-        num_list.clear()
-        op_list.clear()
+    private fun clear() : String{
+        numList.clear()
+        opList.clear()
         latest = ""
         return "0"
     }
