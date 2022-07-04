@@ -1,36 +1,28 @@
 package com.example.mol12345
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.activity.result.ActivityResultLauncher
 import androidx.recyclerview.widget.RecyclerView
 
 //
-class GalleryAdapter(private val launcher: ActivityResultLauncher<Intent>): RecyclerView.Adapter<GalleryAdapter.GalleryHolder>() {
+class GalleryAdapter: RecyclerView.Adapter<GalleryAdapter.GalleryHolder>() {
     var imageList = mutableListOf<GalleryListData>()
 
     inner class GalleryHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-//        private var idImageView: ImageView = itemView.findViewById(R.id.gallery_image)
         private var idImageButton: ImageButton = itemView.findViewById(R.id.gallery_image)
 
         fun setImage(listData: GalleryListData) {   // for binding
-            val uri = "image_${listData.image_number}"
-
             val context = idImageButton.context
-            val imageResource = context.resources.getIdentifier(uri, "drawable", context.packageName)
-
-            idImageButton.setImageResource(imageResource)
+            idImageButton.setImageURI(listData.image_uri)
             idImageButton.adjustViewBounds = true
+
             idImageButton.setOnClickListener {
                 val intent = Intent(context, GalleryShowActivity::class.java)
-                intent.putExtra("image_number", listData.image_number)
-                intent.putExtra("image_resource", imageResource)
+                intent.putExtra("image_uri", listData.image_uri)
+                intent.putExtra("image_index", listData.image_index)
                 context.startActivity(intent)
             }
         }

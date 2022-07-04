@@ -12,7 +12,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/gallery_large_image"
-        android:textSize="60sp"
+        android:textSize="20sp"
         android:text="@string/gallery"
         android:textColor="#F0F0F0"
         />

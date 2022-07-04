@@ -87,14 +87,14 @@ class Calculator {
             }
             "=" -> {
                 num_list.clear()
-                num_list[0] = new_data
+                num_list.add(new_data)
                 latest = new_data
             }
             else -> {
                 if(num_list[num_list.lastIndex] == "-0"){
                     num_list[num_list.lastIndex] = "-$new_data"
                 }
-                else {
+                else if (num_list[num_list.lastIndex].length < 9) {
                     num_list[num_list.lastIndex] = num_list.last().plus(new_data)
                 }
                 latest = num_list.last()
