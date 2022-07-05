@@ -15,8 +15,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 class MainActivity : AppCompatActivity() {
     private val permissionList = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.READ_CONTACTS,
-        Manifest.permission.WRITE_CONTACTS,
     )
     private val checkPermission = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { result ->
         result.forEach {
@@ -31,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        supportActionBar?.hide()
         checkPermission.launch(permissionList)
 
         val viewPager: ViewPager2 = findViewById(R.id.viewPager)

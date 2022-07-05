@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -55,6 +56,10 @@ class Fragment01: Fragment() {
 
         profileAdapter = ContactAdapter()
         readContactsFromJson()
+        if (dataList.isNotEmpty()) {
+            binding.noContactImage.visibility = View.INVISIBLE
+            binding.noContactText.visibility = View.INVISIBLE
+        }
         binding.rvProfile.adapter = profileAdapter
         binding.rvProfile.layoutManager = LinearLayoutManager(view.context)
         binding.rvProfile.addItemDecoration(VerticalItemDecorator(20))
@@ -80,6 +85,14 @@ class Fragment01: Fragment() {
                 i.nick = data1.nick
                 i.number = data1.number
             }
+        }
+        if (dataList.isNotEmpty()) {
+            binding.noContactImage.visibility = View.INVISIBLE
+            binding.noContactText.visibility = View.INVISIBLE
+        }
+        else {
+            binding.noContactImage.visibility = View.VISIBLE
+            binding.noContactText.visibility = View.VISIBLE
         }
         profileAdapter.notifyDataSetChanged()
     }
