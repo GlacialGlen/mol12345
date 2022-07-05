@@ -18,7 +18,7 @@
 전체 구조는 ```MainActivity``` 클래스가 맡고 있으며, 각 탭에는 탭의 작업을 나타내는 아이콘이 표시됩니다.   
 각 ```Fragment```에서 여러 권한이 사용되므로 이 권한들을 ```MainActivity```에서 요청합니다.
 
-###     TAB1 전화 기록부
+###     TAB1  전화 기록부
 
 <img src="/screenshots/contact_empty.png" width="216px" height="456px" title="연락처 없음"></img>
 
@@ -53,7 +53,7 @@
 
 
 ***
-###     TAB2 갤러리
+###     TAB2  갤러리
 탭 2는 장치의 이미지를 보여주는 간단한 갤러리입니다.   
 <img src="/screenshots/gallery_empty.png" width="216px" height="456px" title="갤러리 이미지 없음"></img>
 <img src="/screenshots/gallery_hasimage.png" width="216px" height="456px" title="갤러리 이미지 있음"></img>
@@ -71,11 +71,11 @@
 * ```ViewPager2```가 보여주는 사진이 사용자가 누른 사진을 보여주도록 자동으로 스크롤됩니다.
 
 
-###     TAB3 계산기
+###     TAB3  계산기
 탭 3은 간단한 계산을 할 수 있는 계산기입니다.   
 <img src="/screenshots/calculator.png" width="216px" height="456px" title="계산기"></img>
 
-*계산기-logic
+* 계산기-logic
 
 계산기 버튼 누른 것에 따른 결과 값을 return해주는 class인 ```Caclulator```를 만들었습니다.
 
