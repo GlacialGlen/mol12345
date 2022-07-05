@@ -1,4 +1,4 @@
-package com.example.mol12345
+package com.example.molweek1
 
 import android.content.Context
 import android.content.SharedPreferences
