@@ -274,12 +274,14 @@ class Calculator {
         if (numList.isEmpty()) {
             return "0"
         }
-        else if(latest.toDoubleOrNull() != null){
+        else if(numList.last().toDouble().toInt() == numList.last().toInt()){
             var new : Double = numList.last().toDouble()
             if (new != 0.0) {
                 new /= 100
                 numList[numList.lastIndex] = new.toString()
-                latest = numList[numList.lastIndex]
+                if(latest.toDoubleOrNull() != null){
+                    latest = numList.last()
+                }
             }
         }
         return numList.last()
