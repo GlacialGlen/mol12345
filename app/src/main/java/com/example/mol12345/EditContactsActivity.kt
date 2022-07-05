@@ -17,6 +17,7 @@ class EditContactsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = EditContanctsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
         sharedManager = SharedManager(this)
         val editorResource : Bundle? = intent.extras
         if(editorResource == null){

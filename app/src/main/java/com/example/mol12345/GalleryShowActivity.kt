@@ -16,7 +16,7 @@ class GalleryShowActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gallery_main)
-
+        supportActionBar?.hide()
         val viewPager: ViewPager2 = findViewById(R.id.gallery_scroll_viewpager)
         val galleryShowAdapter = GalleryShowAdapter()
         if (imageList.isEmpty()) {
