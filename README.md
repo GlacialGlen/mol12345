@@ -20,19 +20,14 @@
 
 ###     TAB1 전화 기록부
 <img src="/screenshots/contact_empty.png" width="216px" height="456px" title="연락처 없음"></img>
-<img src="/screenshots/contact_some.png" width="216px" height="456px" title="연락처 있음"></img>
-<img src="/screenshots/contact_info.png" width="216px" height="456px" title="연락처 정보"></img>
-<img src="/screenshots/contact_edit.png" width="216px" height="456px" title="연락처 수정"></img>
-
-(처음 전화 기록부 들어갔을 때 모습)
 전화기록부에 사용되는 연락처 data는 json으로 만들어 이전에 변경된 data들을 저장하여 사용합니다.
 
 만약 연락처 json파일에 아무 데이터가 없을 때 연락처가 없다는 Image view를 나타냈습니다.
 
-(번호 추가했을 때 모습)
+<img src="/screenshots/contact_some.png" width="216px" height="456px" title="연락처 있음"></img>
 그리고 FAB를 통해 연락처를 추가했을 때 fragment에는 이름만 나타내도록 한 뒤 이름을 누른다면 data를 나타내는 ```contactactivity``` 가 나타나게 된다.
 
-(contactactivity나왔을 때 모습)
+<img src="/screenshots/contact_info.png" width="216px" height="456px" title="연락처 정보"></img>
 
 ```contactactivity``` 에서 편집 버튼과 전화 걸기, 메세지 보내기 버튼을 만들었다.
 
@@ -43,7 +38,7 @@
 그리고 바뀐 data를 ```Fragment01```에 있는 datalist에 적용시키기 위해 SharedPrefrence를 사용하여 미리 만든 SharedManager를 사용했다.
 
 ```editoractivity```안에는 바꾼 data를 저장하는 버튼, 바꾸지 않고 돌아가는 버튼, 그리고 현재 연락처 데이터를 삭제하는 버튼이 존재한다.
-(editoractivity 사진)
+<img src="/screenshots/contact_edit.png" width="216px" height="456px" title="연락처 수정"></img>
 
 그리고 각각 activity 내부에는 ```view binding```을 사용하여 xml파일과 binding을 하여 data를 다루었다.
 
