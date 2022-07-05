@@ -31,7 +31,7 @@
 
 ***
 ###     TAB2 갤러리
-탭 2는 장치의 이미지를 보여주는 간단한 갤러리입니다.
+탭 2는 장치의 이미지를 보여주는 간단한 갤러리입니다.   
 <img src="/screenshots/gallery_empty.png" width="216px" height="456px" title="갤러리 이미지 없음"></img>
 <img src="/screenshots/gallery_hasimage.png" width="216px" height="456px" title="갤러리 이미지 있음"></img>
 #### 갤러리 사진 리스트
@@ -49,6 +49,7 @@
 
 
 ###     TAB3 계산기
+탭 3은 간단한 계산을 할 수 있는 계산기입니다.   
 <img src="/screenshots/calculator.png" width="216px" height="456px" title="계산기"></img>
 *            계산기-logic
 * 계산기-UI   
