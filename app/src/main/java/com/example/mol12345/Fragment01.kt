@@ -1,4 +1,4 @@
-package com.example.molweek1
+package com.example.mol12345
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -13,7 +13,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.molweek1.databinding.Fragment01Binding
+import com.example.mol12345.databinding.Fragment01Binding
 import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.google.gson.reflect.TypeToken

@@ -1,4 +1,4 @@
-package com.example.molweek1
+package com.example.mol12345
 
 import android.view.LayoutInflater
 import android.view.View

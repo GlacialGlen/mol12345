@@ -1,10 +1,10 @@
-package com.example.molweek1
+package com.example.mol12345
 
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.molweek1.databinding.ItemRecyclerBinding
+import com.example.mol12345.databinding.ItemRecyclerBinding
 
 data class Data1(
     var id : Int,

@@ -1,4 +1,4 @@
-package com.example.molweek1
+package com.example.mol12345
 
 import org.junit.Test
 
