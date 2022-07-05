@@ -32,6 +32,9 @@ class Fragment01: Fragment() {
     private lateinit var sharedManager: SharedManager
     private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
 
+    private var myname = "박강우"
+    private var mynumber = "010-0000-0000"
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -55,6 +58,8 @@ class Fragment01: Fragment() {
                         profileAdapter.notifyItemInserted(dataList.lastIndex)
                 }
             }
+        binding.textView2.text = myname
+        binding.textView3.text = mynumber
 
         profileAdapter = ContactAdapter()
         profileAdapter.data = dataList
