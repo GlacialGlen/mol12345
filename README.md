@@ -28,10 +28,23 @@
 ***
 ###     TAB2 갤러리
 탭 2는 장치의 이미지를 보여주는 간단한 갤러리입니다.
+
+#### 갤러리 사진 리스트
 갤러리에 표시되는 이미지들은 장치의 개인 디렉터리인 ```storage/emulated/0/``` 안의 사진들로,   
-```Java.nio.file```의 클래스들을 이용하여 [사진들을 불러오도록](https://github.com/glacya/mol12345/blob/master/app/src/main/java/com/example/mol12345/Fragment02.kt#L49-72) 구현되었습니다.
+```Java.nio.file```의 클래스들을 이용하여 [사진들의 리스트를 불러오도록](https://github.com/glacya/mol12345/blob/master/app/src/main/java/com/example/mol12345/Fragment02.kt#L49-L72) 구현되었습니다.
+
+불러온 사진들은 ```RecyclerView```를 사용해 배치되고, ```RecyclerView```의 각 요소들은 불러온 사진들을 사용하는 ```ImageButton```입니다.   
+```onResume()``` 메서드를 활용하여 앱을 사용자가 다시 볼 때마다 사진들의 리스트를 업데이트하도록 설계했습니다.
+
+#### 갤러리 사진 확대
+각 사진의 ```ImageButton```을 누르면 누른 사진을 확대하여 보여주는 새로운 ```Activity```가 열립니다.   
+이 ```Activity```는 ```ViewPager2```로 구현되어 다음 기능을 지원합니다.
+* 좌우로 스와이프하여 다른 사진을 볼 수 있습니다.
+* ```ViewPager2```가 보여주는 사진이 사용자가 누른 사진을 보여주도록 자동으로 스크롤됩니다.
 
 
 ###     TAB3 계산기
 *            계산기-logic
 *            계산기-UI
+계산기의 레이아웃은 ```ConstraintLayout```에 계산기의 현재 텍스트를 표시하는 ```TextView```와
+계산기의 버튼들을 나타내는 ```Button```들로 구성됩니다.
