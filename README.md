@@ -49,7 +49,7 @@
 
 
 ###     TAB3 계산기
-![계산기](/screenshots/calculator.png)
+<img src="/screenshots/calculator.png" width="108px" height="228px" title="계산기"></img>
 *            계산기-logic
 * 계산기-UI   
 계산기의 레이아웃은 ```ConstraintLayout```에 계산기의 현재 텍스트를 표시하는 ```TextView```와
