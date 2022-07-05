@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mol12345">
+    package="com.example.molweek1">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mol12345">
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.molweek1.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,17 +23,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GalleryShowActivity"
+            android:name="com.example.molweek1.GalleryShowActivity"
             >
 
         </activity>
         <activity
-            android:name=".ContactActivity"
+            android:name="com.example.molweek1.ContactActivity"
             >
 
         </activity>
         <activity
-            android:name=".EditContactsActivity"
+            android:name="com.example.molweek1.EditContactsActivity"
             >
 
         </activity>
