@@ -53,7 +53,7 @@ class Fragment01: Fragment() {
                             number = it.data?.getStringExtra("edit_phone_number") ?: "010-0000-0000"
                         )
                         dataList.add(d)
-                        profileAdapter.notifyDataSetChanged()
+                        profileAdapter.notifyItemInserted(dataList.lastIndex)
                 }
             }
 

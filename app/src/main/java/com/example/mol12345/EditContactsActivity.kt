@@ -22,7 +22,7 @@ class EditContactsActivity : AppCompatActivity() {
         if(editorResource == null){
             binding.editHumanName.setText(getString(R.string.contact_not_found))
             binding.editHumanNickname.setText(R.string.contact_not_found)
-            binding.editPhoneNumber.setText(R.string.humanpnum)
+            binding.editPhoneNumber.setText(R.string.human_phone_num)
         }
         else {
             id = editorResource.getInt("edit_id")
