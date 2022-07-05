@@ -37,7 +37,7 @@ class ContactActivity : AppCompatActivity() {
             id = 0
             binding.humanName.text = getString(R.string.contact_not_found)
             binding.humanNickname.text = getString(R.string.contact_not_found)
-            binding.phoneNumber.text = getString(R.string.humanpnum)
+            binding.phoneNumber.text = getString(R.string.human_phone_num)
         }
         else{
             id = humanResource.getInt("id")

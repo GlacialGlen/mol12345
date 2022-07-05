@@ -3,10 +3,10 @@
     <string name="contact">Contact</string>
     <string name="gallery">Gallery</string>
     <string name="calculator">Calculator</string>
-    <string name="no_image">Something wrong, no image found</string>
-    <string name="humanname">name</string>
-    <string name="humanpnum">010–0000–0000</string>
-    <string name="humannick">nickname</string>
+    <string name="no_image_text">사진이 없습니다.</string>
+    <string name="human_name">name</string>
+    <string name="human_phone_num">010–0000–0000</string>
+    <string name="human_nick">nickname</string>
     <string name="calling">전화 걸기</string>
     <string name="messaging">메세지 보내기</string>
     <string name="store">저장</string>
