@@ -20,13 +20,13 @@
 
 ###     TAB1  전화 기록부
 
-<img src="/screenshots/contact_empty.png" width="216px" height="456px" title="연락처 없음"></img>
+<img src="/screenshots/contact_empty_rev.png" width="216px" height="456px" title="연락처 없음"></img>
 
 전화기록부에 사용되는 연락처 data는 json으로 만들어 이전에 변경된 data들을 저장하여 사용합니다.
 
 만약 연락처 json파일에 아무 데이터가 없을 때 연락처가 없다는 Image view를 나타냈습니다.
 
-<img src="/screenshots/contact_some.png" width="216px" height="456px" title="연락처 있음"></img>
+<img src="/screenshots/contact_some_rev.png" width="216px" height="456px" title="연락처 있음"></img>
 
 그리고 FAB를 통해 연락처를 추가했을 때 fragment에는 이름만 나타내도록 한 뒤 이름을 누른다면 data를 나타내는 ```contactactivity``` 가 나타납니다.
 
