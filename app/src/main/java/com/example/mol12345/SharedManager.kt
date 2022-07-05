@@ -21,7 +21,7 @@ class SharedManager(context: Context) {
             id = prefs["id", 0],
             name = prefs["name", ""],
             nick = prefs["nick", ""],
-            number = prefs["number", ""],
+            number = prefs["phone_number", ""],
         )
     }
 

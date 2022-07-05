@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MORIPCAMP BEST APP</string>
+    <string name="app_name">Calculator</string>
     <string name="contact">Contact</string>
     <string name="gallery">Gallery</string>
     <string name="calculator">Calculator</string>
@@ -34,5 +34,6 @@
     <string name="calculator_button_0">0</string>
     <string name="calculator_button_dot">.</string>
     <string name="calculator_button_cal">=</string>
+    <string name="delete">연락처 삭제</string>
 
 </resources>

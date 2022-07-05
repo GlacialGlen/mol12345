@@ -17,10 +17,11 @@ class ContactAdapter : RecyclerView.Adapter<ContactAdapter.MyViewHolder>(){
     var data = mutableListOf<Data1>()
     private var _bb : ItemRecyclerBinding? = null
     private val bbinding get() = _bb!!
+    private lateinit var sharedManager: SharedManager
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         _bb = ItemRecyclerBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         val binding = bbinding
-
+        sharedManager = SharedManager(binding.name.context)
         return MyViewHolder(binding)
     }
 

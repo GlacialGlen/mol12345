@@ -40,9 +40,9 @@ class MainActivity : AppCompatActivity() {
 
         val tabLayout: TabLayout = findViewById(R.id.tab_layout)
 
-        val tabTitles = listOf("Contact", "Gallery", "Calculator")
+        val tabicon = listOf(getDrawable(R.drawable.calicon), getDrawable(R.drawable.galicon), getDrawable(R.drawable.calculatoricon))
 
-        TabLayoutMediator(tabLayout, viewPager) { tab, position -> tab.text = tabTitles[position] }.attach()
+        TabLayoutMediator(tabLayout, viewPager) { tab, position -> tab.icon = tabicon[position] }.attach()
     }
 
 }

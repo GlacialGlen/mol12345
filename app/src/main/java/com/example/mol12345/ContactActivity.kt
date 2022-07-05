@@ -27,6 +27,9 @@ class ContactActivity : AppCompatActivity() {
                     binding.humanNickname.text = it.data?.getStringExtra("edit_human_nick")
                     binding.phoneNumber.text = it.data?.getStringExtra("edit_phone_number")
                 }
+                else if(it.resultCode == RESULT_FIRST_USER){
+                    if(!isFinishing) finish()
+                }
             }
 
         val humanResource : Bundle? = intent.extras
@@ -60,6 +63,7 @@ class ContactActivity : AppCompatActivity() {
 
             binding.edit.setOnClickListener {//edit
                 val intent = Intent(this, EditContactsActivity::class.java)
+                intent.putExtra("flag",0)
                 intent.putExtra("edit_id",id)
                 intent.putExtra("edit_human_name",binding.humanName.text.toString())
                 intent.putExtra("edit_human_nick",binding.humanNickname.text.toString())
