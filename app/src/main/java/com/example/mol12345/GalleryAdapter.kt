@@ -17,7 +17,6 @@ class GalleryAdapter: RecyclerView.Adapter<GalleryAdapter.GalleryHolder>() {
         fun setImage(listData: GalleryListData) {   // for binding
             val context = idImageButton.context
             idImageButton.setImageURI(listData.image_uri)
-            idImageButton.adjustViewBounds = true
 
             idImageButton.setOnClickListener {
                 val intent = Intent(context, GalleryShowActivity::class.java)

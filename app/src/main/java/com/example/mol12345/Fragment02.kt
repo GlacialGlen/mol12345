@@ -67,6 +67,10 @@ class Fragment02: Fragment() {
             noImageImageView.visibility = View.INVISIBLE
             noImageTextView.visibility = View.INVISIBLE
         }
+        else {
+            noImageImageView.visibility = View.VISIBLE
+            noImageTextView.visibility = View.VISIBLE
+        }
 
         galleryAdapter.imageList = imageList
     }
