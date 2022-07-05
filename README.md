@@ -20,6 +20,10 @@
 
 ***
 ###     TAB1 전화 기록부
+![연락처 없음](/screenshots/contact_empty.png)
+![연락처 있음](/screenshots/contact_some.png)
+![연락처 정보](/screenshots/contact_info.png)
+![연락처 수정](/screenshots/contact_edit.png)
 *            (처음 전화 기록부 들어갔을 때 모습)
 *            전화기록부에 사용되는 연락처 data는 json으로 만들어 이전에 변경된 data들을 저장하여 사용합니다.
 *            만약 연락처 json파일에 아무 데이터가 없을 때 연락처가 없다는 Image view를 나타냈습니다.
@@ -28,7 +32,8 @@
 ***
 ###     TAB2 갤러리
 탭 2는 장치의 이미지를 보여주는 간단한 갤러리입니다.
-
+![이미지 없음](/screenshots/gallery_empty.png)
+![이미지 있음](/screenshots/gallery_hasimage.png)
 #### 갤러리 사진 리스트
 갤러리에 표시되는 이미지들은 장치의 개인 디렉터리인 ```storage/emulated/0/``` 안의 사진들로,   
 ```Java.nio.file```의 클래스들을 이용하여 [사진들의 리스트를 불러오도록](https://github.com/glacya/mol12345/blob/e6476d51fb01dc3be7584da183fecf021885ff47/app/src/main/java/com/example/mol12345/Fragment02.kt#L49-L72) 구현되었습니다.
@@ -44,6 +49,7 @@
 
 
 ###     TAB3 계산기
+![계산기](/screenshots/calculator.png)
 *            계산기-logic
 * 계산기-UI   
 계산기의 레이아웃은 ```ConstraintLayout```에 계산기의 현재 텍스트를 표시하는 ```TextView```와
