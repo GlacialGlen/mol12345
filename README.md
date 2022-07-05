@@ -31,7 +31,7 @@
 
 #### 갤러리 사진 리스트
 갤러리에 표시되는 이미지들은 장치의 개인 디렉터리인 ```storage/emulated/0/``` 안의 사진들로,   
-```Java.nio.file```의 클래스들을 이용하여 [사진들의 리스트를 불러오도록](https://github.com/glacya/mol12345/blob/master/app/src/main/java/com/example/mol12345/Fragment02.kt#L49-L72) 구현되었습니다.
+```Java.nio.file```의 클래스들을 이용하여 [사진들의 리스트를 불러오도록](https://github.com/glacya/mol12345/blob/e6476d51fb01dc3be7584da183fecf021885ff47/app/src/main/java/com/example/mol12345/Fragment02.kt#L49-L72) 구현되었습니다.
 
 불러온 사진들은 ```RecyclerView```를 사용해 배치되고, ```RecyclerView```의 각 요소들은 불러온 사진들을 사용하는 ```ImageButton```입니다.   
 ```onResume()``` 메서드를 활용하여 앱을 사용자가 다시 볼 때마다 사진들의 리스트를 업데이트하도록 설계했습니다.
@@ -45,6 +45,7 @@
 
 ###     TAB3 계산기
 *            계산기-logic
-*            계산기-UI
+* 계산기-UI
 계산기의 레이아웃은 ```ConstraintLayout```에 계산기의 현재 텍스트를 표시하는 ```TextView```와
-계산기의 버튼들을 나타내는 ```Button```들로 구성됩니다.
+계산기의 버튼들을 나타내는 ```Button```들로 구성됩니다.   
+특정한 버튼들을 누름에 따라 AC 버튼이 C로 바뀌거나, 연산자 버튼의 색이 유지되는 등의 요소가 포함되어 있습니다.
