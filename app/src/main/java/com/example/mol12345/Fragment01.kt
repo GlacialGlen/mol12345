@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -25,7 +26,7 @@ import java.lang.NullPointerException
 class Fragment01: Fragment() {
     private lateinit var profileAdapter: ContactAdapter
     private val dataList: MutableList<Data1> = mutableListOf()
-    private var idNum :Int = 7
+    private var idNum :Int = 1
     private var _binding : Fragment01Binding? = null
     private val binding get() = _binding!!
     private val gson = Gson()
@@ -45,23 +46,33 @@ class Fragment01: Fragment() {
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
             {
                 if(it.resultCode == RESULT_OK){
-                    val d = Data1(id = idNum++, name = it.data?.getStringExtra("edit_human_name")?:"name",
-                        nick = it.data?.getStringExtra("edit_human_nick")?:"nickname",
-                        number = it.data?.getStringExtra("edit_phone_number")?:"010-0000-0000")
-                    dataList.add(d)
-                    profileAdapter.notifyDataSetChanged()
+                        val d = Data1(
+                            id = idNum++,
+                            name = it.data?.getStringExtra("edit_human_name") ?: "name",
+                            nick = it.data?.getStringExtra("edit_human_nick") ?: "nickname",
+                            number = it.data?.getStringExtra("edit_phone_number") ?: "010-0000-0000"
+                        )
+                        dataList.add(d)
+                        profileAdapter.notifyDataSetChanged()
                 }
             }
 
         profileAdapter = ContactAdapter()
+        profileAdapter.data = dataList
+
         readContactsFromJson()
+        if (dataList.isNotEmpty()) {
+            binding.noContactImage.visibility = View.INVISIBLE
+            binding.noContactText.visibility = View.INVISIBLE
+        }
         binding.rvProfile.adapter = profileAdapter
         binding.rvProfile.layoutManager = LinearLayoutManager(view.context)
         binding.rvProfile.addItemDecoration(VerticalItemDecorator(20))
         binding.rvProfile.addItemDecoration(HorizontalItemDecorator(10))
         binding.fab.setOnClickListener{
             val intent = Intent(binding.rvProfile.context, EditContactsActivity::class.java)
-            intent.putExtra("edit_id",id)
+            intent.putExtra("edit_id",idNum)
+            intent.putExtra("flag",1)
             intent.putExtra("edit_human_name","박강우")
             intent.putExtra("edit_human_nick","박 강 우")
             intent.putExtra("edit_phone_number","010-0000-0000")
@@ -74,12 +85,27 @@ class Fragment01: Fragment() {
     override fun onResume() {
         super.onResume()
         val data1 : Data1 = sharedManager.getCurrentData()
-        for(i in dataList){
-            if(i.id == data1.id){
-                i.name = data1.name
-                i.nick = data1.nick
-                i.number = data1.number
+        for (i in dataList) {
+            if (i.id == data1.id) {
+                if(data1.name == "delete"){
+                    dataList.remove(i)
+
+                }
+                else {
+                    i.name = data1.name
+                    i.nick = data1.nick
+                    i.number = data1.number
+                }
+                break
             }
+        }
+        if (dataList.isNotEmpty()) {
+            binding.noContactImage.visibility = View.INVISIBLE
+            binding.noContactText.visibility = View.INVISIBLE
+        }
+        else {
+            binding.noContactImage.visibility = View.VISIBLE
+            binding.noContactText.visibility = View.VISIBLE
         }
         profileAdapter.notifyDataSetChanged()
     }
@@ -108,7 +134,9 @@ class Fragment01: Fragment() {
                 val data: MutableList<String> = gson.fromJson(jsonString, itemType)
                 for (d in data) {
                     dataList.add(gson.fromJson(d, Data1::class.java))
-                    idNum += 1
+                }
+                if (dataList.isNotEmpty()) {
+                    idNum = dataList[dataList.lastIndex].id + 1
                 }
             }
             catch (_: NullPointerException) {
