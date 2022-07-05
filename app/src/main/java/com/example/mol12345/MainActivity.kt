@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -39,9 +40,9 @@ class MainActivity : AppCompatActivity() {
 
         val tabLayout: TabLayout = findViewById(R.id.tab_layout)
 
-        val tabicon = listOf(getDrawable(R.drawable.calicon), getDrawable(R.drawable.galicon), getDrawable(R.drawable.calculatoricon))
+        val tabIcon = listOf(R.drawable.calicon,R.drawable.galicon, R.drawable.calculatoricon)
 
-        TabLayoutMediator(tabLayout, viewPager) { tab, position -> tab.icon = tabicon[position] }.attach()
+        TabLayoutMediator(tabLayout, viewPager) { tab, position -> tab.icon = AppCompatResources.getDrawable(this, tabIcon[position]) }.attach()
     }
 
 }

@@ -135,7 +135,9 @@ class Fragment01: Fragment() {
                 for (d in data) {
                     dataList.add(gson.fromJson(d, Data1::class.java))
                 }
-                idNum = dataList[dataList.lastIndex].id + 1
+                if (dataList.isNotEmpty()) {
+                    idNum = dataList[dataList.lastIndex].id + 1
+                }
             }
             catch (_: NullPointerException) {
                 Toast.makeText(context, "No contacts now.", Toast.LENGTH_SHORT).show()
