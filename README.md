@@ -36,7 +36,7 @@
 
 전화 걸기, 메세지 보내기 버튼을 눌렀을 때에는 intent를 이용하여 핸드폰 내부에 있는 전화와 메세지로 이동하여 현재 data의 전화 번호로 보낼 수 있도록 구현하였습니다.
 
-편집 버튼을 눌렀을 때에는 ```editoractivity```를 실행 시킨다. 이 때 ```editoractivity```에서 바꾼 값을 ```contactactivity```에서 받을 수 있도록 ```registerForActivityResult```를 사용하여 data를 받았습니다.
+편집 버튼을 눌렀을 때에는 ```editoractivity```를 실행 시킵니다. 이 때 ```editoractivity```에서 바꾼 값을 ```contactactivity```에서 받을 수 있도록 ```registerForActivityResult```를 사용하여 data를 받았습니다.
 
 그리고 바뀐 data를 ```Fragment01```에 있는 datalist에 적용시키기 위해 SharedPrefrence를 사용하여 미리 만든 SharedManager를 사용했습니다.
 
