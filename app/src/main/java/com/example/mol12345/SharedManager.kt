@@ -1,9 +1,9 @@
-package com.example.molweek1
+package com.example.mol12345
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.example.molweek1.PreferenceHelper.set
-import com.example.molweek1.PreferenceHelper.get
+import com.example.mol12345.PreferenceHelper.set
+import com.example.mol12345.PreferenceHelper.get
 
 class SharedManager(context: Context) {
 
