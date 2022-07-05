@@ -18,6 +18,7 @@ class ContactActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ContactsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         activityResultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
