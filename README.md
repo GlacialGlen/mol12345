@@ -77,23 +77,23 @@
 
 * 계산기-logic
 
-계산기 버튼 누른 것에 따른 결과 값을 return해주는 class인 ```Caclulator```를 만들었습니다.
+  계산기 버튼 누른 것에 따른 결과 값을 return해주는 class인 ```Caclulator```를 만들었습니다.
 
-```Calculator```에 외부 function으로 현재 data에 따른 textView에 출력해야하는 data를 return하는 function이 존재합니다.
+  ```Calculator```에 외부 function으로 현재 data에 따른 textView에 출력해야하는 data를 return하는 function이 존재합니다.
 
-```Calculator```에는 입력 받은 값이 숫자면 CallNum, +, -,와 같은 연산자일 때 CallOp, 결과 값을 출력하는 =일 때 CallCal, +/-를 실행 했을 때 CallNeg, "."를 입력 했을 때 CallDot, "%"를 입력 했을 때 CallPer, 현재 class내부에 있는 list와 같은 variable을 초기화 하는 Clear()함수가 존재합니다.
+  ```Calculator```에는 입력 받은 값이 숫자면 CallNum, +, -,와 같은 연산자일 때 CallOp, 결과 값을 출력하는 =일 때 CallCal, +/-를 실행 했을 때 CallNeg, "."를 입력 했을 때 CallDot, "%"를 입력 했을 때 CallPer, 현재 class내부에 있는 list와 같은 variable을 초기화 하는 Clear()함수가 존재합니다.
 
-계산기에서 입력 받은 data는 모두 String으로 받습니다.
+  계산기에서 입력 받은 data는 모두 String으로 받습니다.
 
-Calculator 내부에는 계산 priority에 따라 계산을 하지 않고 연산자를 저장하는 oplist와, 계산해야하는 숫자를 저장하는 numlist가 존재합니다.
+  Calculator 내부에는 계산 priority에 따라 계산을 하지 않고 연산자를 저장하는 oplist와, 계산해야하는 숫자를 저장하는 numlist가 존재합니다.
 
-그리고 아이폰 계산기의 특징에 따라 "="가 두번 이상 누른상황일 때 필요한 lastnum,lastop가 존재해야 합니다.
+  그리고 아이폰 계산기의 특징에 따라 "="가 두번 이상 누른상황일 때 필요한 lastnum,lastop가 존재해야 합니다.
 
-그리고 바로 직전에 입력 받은 값이 무엇인지 확인하는 latest가 존재합니다.
+  그리고 바로 직전에 입력 받은 값이 무엇인지 확인하는 latest가 존재합니다.
 
-실제 계산을 할 때에는 numlist에 있는 숫자를 꺼내서 double로 바꾼 뒤 계산 후 결과 값이 만약 int라면 int로 바꾼 뒤 다시 string으로 바꿔서 저장합니다.
+  실제 계산을 할 때에는 numlist에 있는 숫자를 꺼내서 double로 바꾼 뒤 계산 후 결과 값이 만약 int라면 int로 바꾼 뒤 다시 string으로 바꿔서 저장합니다.
 
-Callcal 부분에서는 ```number op number =```, ```number op =```, ```~~~==```와 같이 세가지의 경우로 나눠서 계산을 진행하였습니다.
+  Callcal 부분에서는 ```number op number =```, ```number op =```, ```~~~==```와 같이 세가지의 경우로 나눠서 계산을 진행하였습니다.
 
 * 계산기-UI   
   계산기의 레이아웃은 ```ConstraintLayout```에 계산기의 현재 텍스트를 표시하는 ```TextView```와
